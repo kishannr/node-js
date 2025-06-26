@@ -1,5 +1,8 @@
 const sonarqubeScanner = require('sonarqube-scanner');
 
+process.env.JAVA_HOME = '/usr/lib/jvm/java-17-amazon-corretto.x86_64';
+process.env.PATH = process.env.JAVA_HOME + '/bin:' + process.env.PATH;
+
 sonarqubeScanner({
   serverUrl: 'http://43.205.198.62:9000/',
   options: {
@@ -11,7 +14,6 @@ sonarqubeScanner({
     'sonar.language': 'js',
     'sonar.sourceEncoding': 'UTF-8',
     'sonar.sources': '.',
-    // Optional:
     // 'sonar.tests': 'specs',
     // 'sonar.inclusions': 'src/**'
   },
